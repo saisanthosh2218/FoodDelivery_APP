@@ -1,0 +1,10 @@
+{
+  "editor.copyWithSyntaxHighlighting": false,
+  "editor.hideCursorInOverviewRuler": false,
+  "editor.multiCursorMergeOverlapping": false,
+  "editor.cursorStyle": "line",
+  "editor.bracketPairColorization.independentColorPoolPerBracketType": false,
+  "editor.bracketPairColorization.enabled": true,
+  "editor.columnSelection": false,
+  "editor.defaultColorDecorators": true
+}

@@ -1,0 +1,28 @@
+.mainDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px;
+  opacity: 0.874;
+  background-color: rgba(126, 150, 158, 0.432);
+}
+
+.mainDiv ul {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+li {
+  margin: 0 0px;
+  flex: 1;
+  display: flex;
+  justify-content: space-evenly;
+  font-family: cursive;
+  font-size: larger;
+}
+
+ul li a {
+  text-decoration: none;
+  color: black;
+}

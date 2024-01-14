@@ -1,0 +1,36 @@
+.about-container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  min-height: 50vh;
+  margin-top: 50px;
+
+  margin-bottom: 5px;
+}
+
+.about-img {
+  width: 45%;
+  margin-bottom: 10px;
+}
+
+.about-img img {
+  width: 80%;
+  height: 80%;
+  border-radius: 8px;
+}
+
+.about-text {
+  width: 45%;
+  margin-top: 20px;
+  padding: 5px;
+}
+.about-text p {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  color: crimson;
+}
+.about-text span {
+  margin-left: 15px;
+  width: 90%;
+  display: inline-block;
+  color: darkblue;
+}
