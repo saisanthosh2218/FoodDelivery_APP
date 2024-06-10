@@ -6,7 +6,7 @@ const FETCH_FOOD_ITEMS_FAILURE = "FETCH_FOOD_ITEMS_FAILURE";
 export const fetchFoodItems = async (dispatch) => {
   try {
     const response = await axios.get(
-      "https://yummy-food-xup0.onrender.com/api/foodItems"
+      "https://yummy-food-i1el.onrender.com/api/foodItems"
     );
     const foodItems = response.data.data;
 

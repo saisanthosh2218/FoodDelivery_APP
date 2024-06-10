@@ -74,17 +74,6 @@ const Food_Products = () => {
     setIsNavbarOpen(false);
   };
 
-  // const handleSearch = () => {
-  //   setIsFindItemClicked(true);
-  //   setFilteredItems(
-  //     foodItems.filter((item) =>
-  //       item.itemName.toLowerCase().includes(searchTerm.toLowerCase())
-  //     )
-  //   );
-  //   setSelectedCategory("All Items");
-  //   closeNavbar();
-  // };
-
   return (
     <div>
       <Container className="mb-5" style={{ height: "100%" }}>
