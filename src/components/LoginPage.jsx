@@ -41,7 +41,7 @@ const LoginPage = () => {
         );
 
         alert("You Have Successfully Logged In");
-        navigate("/Food_Products");
+        navigate("./Food_Products");
       } else {
         dispatch(setLoginError("Invalid Email or Password. Please Register."));
       }
