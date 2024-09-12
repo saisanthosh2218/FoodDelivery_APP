@@ -12,7 +12,7 @@ Welcome to the Food Delivery Application! This is a React-based web application 
 
 ## Demo
 
-You can access the live demo of the Food Delivery Application [Here](https://jocular-fdapp-ss-3e82f9.netlify.app/).
+You can access the live demo of the Food Delivery Application [Here](https://food-delivery-gssk-2218.netlify.app/).
 
 ## Technologies Used
 
