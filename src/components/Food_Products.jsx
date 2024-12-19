@@ -7,6 +7,7 @@ import {
   Button,
   Navbar,
   Nav,
+  Spinner,
 } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
@@ -26,6 +27,7 @@ const Food_Products = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [isFindItemClicked, setIsFindItemClicked] = useState(false);
   const [filteredItems, setFilteredItems] = useState([]);
+  const [loading, setLoading] = useState(true); // Add loading state
 
   const handleLogout = () => {
     localStorage.removeItem("emailText");
@@ -38,7 +40,10 @@ const Food_Products = () => {
   };
 
   useEffect(() => {
-    fetchFoodItems(dispatch);
+    setLoading(true); // Show loader when fetching starts
+    fetchFoodItems(dispatch).finally(() => {
+      setLoading(false); // Hide loader when fetching is complete
+    });
   }, [dispatch]);
 
   const handleFindItemClick = () => {
@@ -177,87 +182,21 @@ const Food_Products = () => {
           </Button>
         </div>
 
-        <Row
-          xs={1}
-          md={2}
-          lg={3}
-          xl={5}
-          className="g-4"
-          style={{ flex: 1, overflowY: "auto" }}
-        >
-          {isFindItemClicked
-            ? filteredItems.map((foodItem) => (
-                <Col
-                  key={foodItem.id}
-                  style={{
-                    display: "flex",
-                    justifyContent: "center",
-                  }}
-                >
-                  <Card
-                    style={{
-                      width: "100%",
-                      height: "100%",
-                      aspectRatio: "2/5",
-                    }}
-                  >
-                    <Card.Img
-                      variant="top"
-                      src={foodItem.img}
-                      style={{ objectFit: "cover", height: "50%" }}
-                    />
-                    <Card.Body
-                      style={{
-                        height: "auto",
-                        padding: "10px",
-                        display: "flex",
-                        flexDirection: "column",
-                        justifyContent: "space-between",
-                      }}
-                    >
-                      <div>
-                        <Card.Title style={{ textAlign: "center" }}>
-                          {foodItem.itemName}
-                        </Card.Title>
-                      </div>
-                      <div style={{ textAlign: "center" }}>
-                        <Card.Text>
-                          <b>Price: ₹{foodItem.price}</b>
-                        </Card.Text>
-                        <Card.Text>
-                          <b style={{ textTransform: "capitalize" }}>
-                            {foodItem.description}
-                          </b>
-                        </Card.Text>
-                        <Button
-                          className="mt-2"
-                          variant="warning"
-                          onClick={() =>
-                            navigate(`/Food_Products/${foodItem?.id}`, {
-                              state: {
-                                price: foodItem?.price,
-                                id: foodItem?.id,
-                                itemName: foodItem?.itemName,
-                                itemImg: foodItem?.img,
-                                itemDes: foodItem?.description,
-                              },
-                            })
-                          }
-                        >
-                          Order Now
-                        </Button>
-                      </div>
-                    </Card.Body>
-                  </Card>
-                </Col>
-              ))
-            : foodItems
-                .filter(
-                  (item) =>
-                    selectedCategory === "All Items" ||
-                    item.category === selectedCategory
-                )
-                .map((foodItem) => (
+        {loading ? ( // Show spinner if loading
+          <div className="d-flex justify-content-center align-items-center">
+            <Spinner animation="border" variant="primary" />
+          </div>
+        ) : (
+          <Row
+            xs={1}
+            md={2}
+            lg={3}
+            xl={5}
+            className="g-4"
+            style={{ flex: 1, overflowY: "auto" }}
+          >
+            {isFindItemClicked
+              ? filteredItems.map((foodItem) => (
                   <Col
                     key={foodItem.id}
                     style={{
@@ -321,8 +260,80 @@ const Food_Products = () => {
                       </Card.Body>
                     </Card>
                   </Col>
-                ))}
-        </Row>
+                ))
+              : foodItems
+                  .filter(
+                    (item) =>
+                      selectedCategory === "All Items" ||
+                      item.category === selectedCategory
+                  )
+                  .map((foodItem) => (
+                    <Col
+                      key={foodItem.id}
+                      style={{
+                        display: "flex",
+                        justifyContent: "center",
+                      }}
+                    >
+                      <Card
+                        style={{
+                          width: "100%",
+                          height: "100%",
+                          aspectRatio: "2/5",
+                        }}
+                      >
+                        <Card.Img
+                          variant="top"
+                          src={foodItem.img}
+                          style={{ objectFit: "cover", height: "50%" }}
+                        />
+                        <Card.Body
+                          style={{
+                            height: "auto",
+                            padding: "10px",
+                            display: "flex",
+                            flexDirection: "column",
+                            justifyContent: "space-between",
+                          }}
+                        >
+                          <div>
+                            <Card.Title style={{ textAlign: "center" }}>
+                              {foodItem.itemName}
+                            </Card.Title>
+                          </div>
+                          <div style={{ textAlign: "center" }}>
+                            <Card.Text>
+                              <b>Price: ₹{foodItem.price}</b>
+                            </Card.Text>
+                            <Card.Text>
+                              <b style={{ textTransform: "capitalize" }}>
+                                {foodItem.description}
+                              </b>
+                            </Card.Text>
+                            <Button
+                              className="mt-2"
+                              variant="warning"
+                              onClick={() =>
+                                navigate(`/Food_Products/${foodItem?.id}`, {
+                                  state: {
+                                    price: foodItem?.price,
+                                    id: foodItem?.id,
+                                    itemName: foodItem?.itemName,
+                                    itemImg: foodItem?.img,
+                                    itemDes: foodItem?.description,
+                                  },
+                                })
+                              }
+                            >
+                              Order Now
+                            </Button>
+                          </div>
+                        </Card.Body>
+                      </Card>
+                    </Col>
+                  ))}
+          </Row>
+        )}
       </Container>
     </div>
   );

@@ -6,5 +6,5 @@
   "editor.bracketPairColorization.independentColorPoolPerBracketType": false,
   "editor.bracketPairColorization.enabled": true,
   "editor.columnSelection": false,
-  "editor.defaultColorDecorators": true
+  "editor.defaultColorDecorators": "auto"
 }

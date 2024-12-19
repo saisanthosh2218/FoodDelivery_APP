@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { Button, Card } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import {
   removeFromCart,
   incrementItem,
@@ -11,6 +12,15 @@ import "../CSS/Cart.css";
 const Cart = () => {
   const dispatch = useDispatch();
   const cartItems = useSelector((state) => state.cart.items);
+  const user = useSelector((state) => state.auth.user); // Get user info from Redux
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    // Redirect to login if the user is not logged in
+    if (!user) {
+      navigate("/LoginPage");
+    }
+  }, [user, navigate]);
 
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cartItems));
@@ -26,6 +36,12 @@ const Cart = () => {
 
   const handleDeleteItem = (itemId) => {
     dispatch(removeFromCart(itemId));
+  };
+
+  const handleCheckout = () => {
+    if (user) {
+      alert("Order placed successfully!");
+    }
   };
 
   const totalPrice = cartItems.reduce((total, item) => {
@@ -53,7 +69,7 @@ const Cart = () => {
                 <strong>Total:</strong> ₹
                 {(item.price * item.quantity).toFixed(2)}
               </Card.Text>
-              <div className="button-container  mt-4">
+              <div className="button-container mt-4">
                 <Button
                   className="me-3 w-25"
                   variant="warning"
@@ -83,7 +99,11 @@ const Cart = () => {
         <Card.Text className="total-price">
           <strong>Total Price:</strong> ₹{totalPrice}
         </Card.Text>
-        <Button variant="primary" className="mt-3 ms-2">
+        <Button
+          variant="primary"
+          className="mt-3 ms-2"
+          onClick={handleCheckout}
+        >
           Checkout
         </Button>
       </Card.Body>

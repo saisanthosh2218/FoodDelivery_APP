@@ -10,6 +10,8 @@ export const fetchFoodItems = async (dispatch) => {
     );
     const foodItems = response.data.data;
 
+    // console.log(foodItems);
+
     dispatch({ type: FETCH_FOOD_ITEMS_SUCCESS, payload: foodItems });
   } catch (error) {
     dispatch({ type: FETCH_FOOD_ITEMS_FAILURE, payload: error.message });
