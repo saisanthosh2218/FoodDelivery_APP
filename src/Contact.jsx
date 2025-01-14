@@ -10,6 +10,7 @@ const Contact = () => {
   return (
     <div>
       <div
+        className="flex-col"
         style={{
           display: "flex",
           justifyContent: "space-around",
@@ -24,10 +25,10 @@ const Contact = () => {
           <h6>Friday - Sunday</h6>
           <p>11:00am - 11:00pm</p>
         </div>
-        <div>
+        <div className="hidden">
           <img src={contact_img} width={400} height={400} alt="" />
         </div>
-        <div className="contact-div">
+        <div className="contact-div p-2">
           <h4>Contact</h4>
           <p style={styling}>Location:KPHB,Beside Metro Parking. AKB Lane</p>
           <p style={styling}>Call us:123-456-7890</p>

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Navbar = () => {
   return (
     <div className="mainDiv">
-      <ul>
+      <ul className="w-fit flex-1 flex justify-between pl-0">
         <li>
           <Link to="/">Home</Link>
         </li>

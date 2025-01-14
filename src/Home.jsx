@@ -12,7 +12,7 @@ const Home = () => {
   const navigate = useNavigate();
   return (
     <div>
-      <div className="main-outer-div">
+      <div className="main-outer-div md:grid block h-fit">
         <div className="outerDiv">
           <div className="logo">
             <div className="logo-container">
@@ -42,8 +42,8 @@ const Home = () => {
               </Button>
             </div>
           </div>
-          <div className="main-head container mt-5">
-            <div style={{ padding: "5px" }} className="text-input-div">
+          <div className="main-head container md:mt-5">
+            <div className="text-input-div md:p-2">
               <div className="head-text">
                 <h1>Game Night?</h1>
                 <p className="text-mute">
@@ -74,8 +74,9 @@ const Home = () => {
                     lineHeight: "24px",
                     fontWeight: "500",
                   }}
+                  className="w-fit"
                 >
-                  Ahmedabad,Bangalore,Hyderabad,Mumbai,Delhi,Kolkata, Lucknow,
+                  Ahmedabad,Bangalore,Hyderabad,Mumbai,Delhi, Lucknow,
                   Gujart,Patna,Thrissur, Tirupur, Warangal, Aurangabad, Agra,
                   Mangalore, Manipal, Udaipur, Amritsar, Bhubaneshwar,
                   Thiruvananthapuram and Kota. <br />
@@ -84,11 +85,11 @@ const Home = () => {
             </div>
           </div>
         </div>
-        <div className="img-div">
+        <div className="img-div hidden md:flex">
           <img src={foodpic} alt="" />
         </div>
       </div>
-      <div className="bootstrap-container">
+      <div className="bootstrap-container md:flex hidden">
         <div className="bootstrap-inner-div">
           <div className="bootstrap-img-container">
             <img src={min_ord} alt="" />

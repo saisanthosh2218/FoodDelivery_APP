@@ -54,8 +54,8 @@ const LoginPage = () => {
   return (
     <div>
       <div
+        className="w-5/6 md:w-[400px]"
         style={{
-          width: "400px",
           backgroundColor: "#322929",
           color: "white",
           padding: "8px",

@@ -3,7 +3,7 @@ import "./CSS/Footer.css";
 
 const Footer = () => {
   return (
-    <footer>
+    <footer className="w-full flex-col text-center md:flex-row md:text-center">
       <div className="footer-section container">
         <h2>COMPANY</h2>
         <ul>
@@ -36,7 +36,7 @@ const Footer = () => {
           <li>Phishing & Fraud</li>
         </ul>
       </div>
-      <div className="footer-section">
+      <div className="footer-section mx-auto">
         <button>
           <img
             className="bn45"

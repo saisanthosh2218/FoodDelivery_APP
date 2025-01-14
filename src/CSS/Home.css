@@ -96,3 +96,7 @@
   height: 180px;
   margin-bottom: 8px;
 }
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

@@ -13,11 +13,12 @@
   width: 100%;
 }
 
-li {
+.mainDiv li {
   margin: 0 0px;
-  flex: 1;
+  /* flex: 1; */
+  padding: 0px;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   font-family: cursive;
   font-size: larger;
 }
@@ -26,3 +27,7 @@ ul li a {
   text-decoration: none;
   color: black;
 }
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

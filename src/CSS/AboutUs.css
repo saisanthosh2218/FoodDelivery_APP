@@ -14,14 +14,12 @@
 }
 
 .about-img img {
-  width: 80%;
-  height: 80%;
   border-radius: 8px;
 }
 
 .about-text {
   width: 45%;
-  margin-top: 20px;
+  margin-top: 8px;
   padding: 5px;
 }
 .about-text p {
@@ -29,8 +27,12 @@
   color: crimson;
 }
 .about-text span {
-  margin-left: 15px;
+  margin-left: 10px;
   width: 90%;
   display: inline-block;
   color: darkblue;
 }
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

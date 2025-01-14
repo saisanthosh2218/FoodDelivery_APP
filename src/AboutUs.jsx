@@ -5,10 +5,10 @@ import "./CSS/AboutUs.css";
 const AboutUs = () => {
   return (
     <div className="about-container">
-      <div className="about-img">
-        <img src={why_img} alt="" />
+      <div className="about-img hidden md:block">
+        <img src={why_img} className="w-[85%] p-2" alt="" />
       </div>
-      <div className="about-text">
+      <div className="about-text w-fit p-3">
         <h1>Why Swiggy?</h1>
         <p>
           Lorem ipsum, dolor sit amet consectetur adipisicing elit. Porro
