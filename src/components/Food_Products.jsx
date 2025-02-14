@@ -163,7 +163,7 @@ const Food_Products = () => {
           </Navbar.Collapse>
         </Navbar>
 
-        <div className="mb-3 mt-3 m-auto w-50 d-flex ">
+        <div className="mb-3 mt-3 m-auto d-flex ">
           <input
             className="rounded border border-lightblue"
             type="text"
@@ -175,7 +175,7 @@ const Food_Products = () => {
 
           <Button
             variant="info"
-            className="ms-2 w-25"
+            className="ms-2 "
             onClick={handleFindItemClick}
           >
             Find Item
